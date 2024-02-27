@@ -10,6 +10,7 @@ import DataMap from "./Components/dataMap";
 import AuthDataMap from "./Components/authDataMap";
 import CardDataMap from "./Components/cardDataMap";
 import TableDataMap from "./Components/tableDataMap";
+import ServerForm from "./Components/serverForm";
 
 
 const rootElement = document.getElementById("root");
@@ -28,6 +29,7 @@ root.render(
       <Route path="/carddata" element={<CardDataMap />} />
       <Route path="/authdata" element={<AuthDataMap />} />
       <Route path="/tabledata" element={<TableDataMap />} />
+      <Route path="/serverform" element={<ServerForm />} />
       <Route path="/*" element={<NotFound />} />
     </Routes>
   </BrowserRouter>,

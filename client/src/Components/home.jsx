@@ -19,6 +19,9 @@ function Home() {
         <li>
           <Link to="/tabledata">Table Data Display</Link>
         </li>
+        <li>
+          <Link to="/serverform">Server Form Data</Link>
+        </li>
       </ul>
     </>
   );
