@@ -11,6 +11,7 @@ import AuthDataMap from "./Components/authDataMap";
 import CardDataMap from "./Components/cardDataMap";
 import TableDataMap from "./Components/tableDataMap";
 import ServerForm from "./Components/serverForm";
+import ComponentWillUpdate from "./Components/componentWillUpdate";
 
 
 const rootElement = document.getElementById("root");
@@ -30,6 +31,7 @@ root.render(
       <Route path="/authdata" element={<AuthDataMap />} />
       <Route path="/tabledata" element={<TableDataMap />} />
       <Route path="/serverform" element={<ServerForm />} />
+      <Route path="/componentwillupdate" element={<ComponentWillUpdate />} />
       <Route path="/*" element={<NotFound />} />
     </Routes>
   </BrowserRouter>,

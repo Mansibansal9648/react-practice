@@ -22,6 +22,9 @@ function Home() {
         <li>
           <Link to="/serverform">Server Form Data</Link>
         </li>
+        <li>
+          <Link to="/componentwillupdate">Component Will Update</Link>
+        </li>
       </ul>
     </>
   );
