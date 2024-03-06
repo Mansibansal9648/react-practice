@@ -13,6 +13,7 @@ import TableDataMap from "./Components/tableDataMap";
 import ServerForm from "./Components/serverForm";
 import ComponentWillUpdate from "./Components/componentWillUpdate";
 import FormikForm from "./Components/formikForm";
+import ServerFormFormikYup from "./Components/serverFormFormikYup";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
@@ -33,6 +34,7 @@ root.render(
       <Route path="/serverform" element={<ServerForm />} />
       <Route path="/componentwillupdate" element={<ComponentWillUpdate />} />
       <Route path="/formikform" element={<FormikForm />} />
+      <Route path="/serverformformikyup" element={<ServerFormFormikYup />} />
       <Route path="/*" element={<NotFound />} />
     </Routes>
   </BrowserRouter>,

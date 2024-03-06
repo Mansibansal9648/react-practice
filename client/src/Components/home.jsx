@@ -28,6 +28,9 @@ function Home() {
         <li>
           <Link to="/formikform">Formik Form</Link>
         </li>
+        <li>
+          <Link to="/serverformformikyup">Server Form using Formik and Yup</Link>
+        </li>
       </ul>
     </>
   );
