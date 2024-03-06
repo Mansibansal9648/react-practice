@@ -25,6 +25,9 @@ function Home() {
         <li>
           <Link to="/componentwillupdate">Component Will Update</Link>
         </li>
+        <li>
+          <Link to="/formikform">Formik Form</Link>
+        </li>
       </ul>
     </>
   );
