@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useFormik } from "formik";
+import { employeeSchema } from "../schemas/employeeSchema";
 
 import {
   createEmployeeData,
@@ -40,7 +41,7 @@ function ServerFormFormikYup() {
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues: form_data,
-      //   validationSchema: signUpSchema,
+      validationSchema: employeeSchema,
       onSubmit: async (values, action) => {
         console.log("values: ", values);
         if (form_data.id) {
@@ -128,7 +129,9 @@ function ServerFormFormikYup() {
           placeholder="Enter your name"
           value={values.name}
           onChange={handleChange}
+          onBlur={handleBlur}
         />
+        {errors.name && touched.name ? <p>{errors.name}</p> : null}
         <br />
         <br />
         <label for="designation">Designation : </label>
@@ -139,7 +142,12 @@ function ServerFormFormikYup() {
           placeholder="Enter your designation"
           value={values.designation}
           onChange={handleChange}
+          onBlur={handleBlur}
         />
+        {errors.designation && touched.designation ? (
+          <p>{errors.designation}</p>
+        ) : null}
+
         <br />
         <br />
         <label for="Department">Department : </label>
@@ -150,7 +158,12 @@ function ServerFormFormikYup() {
           placeholder="Enter your department"
           value={values.department}
           onChange={handleChange}
+          onBlur={handleBlur}
         />
+        {errors.department && touched.department ? (
+          <p>{errors.department}</p>
+        ) : null}
+
         <br />
         <br />
         <label for="salary">Salary : </label>
@@ -161,7 +174,10 @@ function ServerFormFormikYup() {
           placeholder="Enter your salary"
           value={values.salary}
           onChange={handleChange}
+          onBlur={handleBlur}
         />
+        {errors.salary && touched.salary ? <p>{errors.salary}</p> : null}
+
         <br />
         <br />
         <label for="joining_date">Date of Joining : </label>
@@ -171,7 +187,12 @@ function ServerFormFormikYup() {
           name="joining_date"
           value={values.joining_date}
           onChange={handleChange}
+          onBlur={handleBlur}
         />
+        {errors.joining_date && touched.joining_date ? (
+          <p>{errors.joining_date}</p>
+        ) : null}
+
         <br />
         <br />
         <button class="btn btn-primary" type="button" onClick={handleSubmit}>
