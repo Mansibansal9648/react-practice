@@ -8,16 +8,16 @@ import {
   updateEmployeeData,
 } from "../api";
 
-const initialValues = {
-// id:"",
-  name: "",
-  designation: "",
-  department: "",
-  salary: "",
-  joining_date: "",
-};
+// const initialValues = {
+//  id:"",
+//   name: "",
+//   designation: "",
+//   department: "",
+//   salary: "",
+//   joining_date: "",
+// };
 function ServerFormFormikYup() {
-  //   const [form_data, setForm_data] = useState(initialState());
+  const [form_data, setForm_data] = useState(initialState());
   const [table_data, setTable_data] = useState([]);
 
   useEffect(() => {
@@ -27,34 +27,35 @@ function ServerFormFormikYup() {
     getData();
   }, []);
 
-  //   function initialState() {
-  //     return {
-  //       name: "",
-  //       designation: "",
-  //       department: "",
-  //       salary: "",
-  //       joining_date: "",
-  //     };
-  //   }
+  function initialState() {
+    return {
+      name: "",
+      designation: "",
+      department: "",
+      salary: "",
+      joining_date: "",
+    };
+  }
 
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
-      initialValues: initialValues,
-    //   validationSchema: signUpSchema,
+      initialValues: form_data,
+      //   validationSchema: signUpSchema,
       onSubmit: async (values, action) => {
         console.log("values: ", values);
-        // if (values.id) {
-        //   // console.log("form data",form_data)
-        //   const res = await updateEntry(values);
-        //   console.log("res", res);
-        // } else {
+        if (form_data.id) {
+          // console.log("form data",form_data)
+          const res = await updateEntry(values);
+          console.log("res", res);
+        } else {
           const res = await createEntry(values);
           console.log("res", res);
-        //  }
-        // setForm_data(initialState);
+        }
+        setForm_data(initialState);
         await getData();
         action.resetForm();
       },
+      enableReinitialize: true,
     });
 
   //   function onChangeHandler(event) {
@@ -218,9 +219,9 @@ function ServerFormFormikYup() {
                     <button
                       class="btn btn-success"
                       type="button"
-                    //   onClick={() => {
-                    //     setForm_data(item);
-                    //   }}
+                      onClick={() => {
+                        setForm_data(item);
+                      }}
                     >
                       Edit
                     </button>
