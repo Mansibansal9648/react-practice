@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import { employeeSchema } from "../schemas/employeeSchema";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import {
   createEmployeeData,
@@ -80,7 +82,8 @@ function ServerFormFormikYup() {
     const res = await getEmployeeData();
     console.log("res", res);
     if (res === undefined) {
-      alert(res.AxiosError.message);
+      // alert(res.message);
+      toast.error(res.message);
     } else if (res.status === 200) {
       setTable_data(res.data);
     }
@@ -95,7 +98,8 @@ function ServerFormFormikYup() {
     console.log("res", res);
     console.log("data", res.data);
     if (res.status === 201) {
-      alert("User created successfully");
+      // alert("User created successfully");
+      toast.success("User created successfully");
     }
     return res;
   }
@@ -104,7 +108,8 @@ function ServerFormFormikYup() {
     const res = await deleteEmployeeData(user_id);
     console.log("res", res);
     if (res.status === 200) {
-      alert("User deleted successfully");
+      // alert("User deleted successfully");
+      toast.success("User deleted successfully");
     }
     getData();
   }
@@ -113,7 +118,8 @@ function ServerFormFormikYup() {
     const res = await updateEmployeeData(form_data);
     console.log("res", res);
     if (res.status === 200) {
-      alert("User updated successfully");
+      // alert("User updated successfully");
+      toast.success("User updated successfully");
     }
     return res;
   }

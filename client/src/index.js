@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-
+import { ToastContainer } from "react-toastify";
 import App from "./App";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Components/home";
@@ -24,6 +24,18 @@ root.render(
   //   <App />
   // </StrictMode>
   <BrowserRouter>
+  <ToastContainer
+position="top-right"
+autoClose={3000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="colored"
+/>
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/form" element={<Form />} />
